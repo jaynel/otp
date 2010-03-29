@@ -826,8 +826,8 @@ fi
 
 AC_CHECK_PROGS(FOP, fop)
 if test -z "$FOP"; then
-  echo "fop" >> doc/CONF_INFO
-  AC_MSG_WARN([No 'fop' command found: the documentation can not be built])
+  FOP="$ERL_TOP/make/fakefop"
+  AC_MSG_WARN([No 'fop' command found: not all documentation will be built])
 fi
 
 dnl
