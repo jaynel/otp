@@ -340,6 +340,10 @@ record_expr -> expr_max '#' atom1 '.' atom1 :
 	{record_field,?line('$2'),'$1',element(3, '$3'),'$5'}.
 record_expr -> expr_max '#' atom1 record_tuple :
 	{record,?line('$2'),'$1',element(3, '$3'),'$4'}.
+record_expr -> record_expr '#' atom1 '.' atom1 :
+	{record_field,?line('$2'),'$1',element(3, '$3'),'$5'}.
+record_expr -> record_expr '#' atom1 record_tuple :
+	{record,?line('$2'),'$1',element(3, '$3'),'$4'}.
 
 record_tuple -> '{' '}' : [].
 record_tuple -> '{' record_fields '}' : '$2'.
